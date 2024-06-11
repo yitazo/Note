@@ -1,0 +1,13 @@
+原始：web与src同级，class在web-info下
+maven：
+	普通web：webapp与java同级，class在web-info下
+	ssm：webapp与java同级，class在web-info下
+	boot：没有webapp，resource里的static映射为虚拟根路径，即static在class里面
+
+
+上传下载（如果使用路径映射就没什么问题，直接用）：上传使用commonio，下载手动使用response
+原始：使用servletContext的getRealPath
+maven：
+	普通web：使用servletContext的getRealPath
+	ssm：使用servletContext的getRealPath
+	boot：使用classLoader来获取路径

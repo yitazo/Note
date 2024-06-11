@@ -1,0 +1,7 @@
+最好用不可变的元素作为key
+
+如果非要用可变元素做key，重写equals和hashcode，可变元素要改变的那个属性不要作为equals和hashcode的判断依据。否则的话，当元素hashcode值发生改变时，hashmap会认不得这个key，即使是同一个对象内存地址相同
+如果非要作为equals和hashcode的判断依据，请在改变元素内部属性前，在hashmap中移除这个元素key的键值对，元素更改完成后，将元素和移除时返回的value再次put进hashmap中
+
+可能你会疑惑，那不重写hashcode不就行了，这样元素内部属性改变，hashcode不发生改变，hashmap还认得这个key
+但是这样做的后果就是，当两个元素完全一样，equals得出的结果是true，但由于两元素内存地址不一致，导致hashcode不一致，hashmap将这两个完全一样的元素会当做两个key (毕竟hashmap只会和key的hashcode算出的桶下标那一片元素比较，这样就会将这一样的元素当成不同的key了)

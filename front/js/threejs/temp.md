@@ -1,0 +1,5 @@
+解决拉伸问题：将摄像机aspect宽高比设置成canvas的clientWidth / clientHeight，即显示宽度 / 显示高度
+
+解决块状化锯齿问题：使用renderer.setSize(canvas.clientWidth, canvas.clientHeight, false)将的canvas的真实尺寸width/height（绘图缓冲区）设置成canvas的显示尺寸clientWidth/Height
+
+在使用中是设置一个方法去检查canvas的真实尺寸和显示尺寸是否有不同，如果有不同就将真实尺寸设置为显示尺寸并且返回true，否则相反。在每次渲染时候调用这个方法，如果这个方法返回true就解决一下拉伸问题，因为一开始摄像机和canvas的宽高比一致，有且只有canvas真实尺寸和显示尺寸不同才会导致摄像机宽高比与canvas宽高比不同而产生拉伸问题

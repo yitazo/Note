@@ -1,0 +1,3 @@
+key在hashmap中的桶下标是根据key的hashcode值的，公式为hashcode ^ (hashcode >>> 16)
+
+当桶里的元素超过7个，会自动变成红黑树，少于3个会自动退化成链表

@@ -1,0 +1,1 @@
+java.lang.IllegalArgumentException: Invalid character found in method name [SSH-2.0-OpenSSH0x0d0x0a...]. HTTP method names must be tokens

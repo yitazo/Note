@@ -1,0 +1,19 @@
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+
+conda create -n pytorch180 python=3.9.13
+conda activate pytorch180
+conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=10.2 -c pytorch
+conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+
+conda create -n tf260 python=3.9.13
+conda activate tf260
+pip install tensorflow==2.6.0 keras==2.6.0 numpy==1.19.5
+
+conda create -n tf170 python=3.6.10
+conda activate tf170
+pip install tensorflow==1.7.0 keras==2.1.6 numpy==1.14.0 pandas==0.24.2

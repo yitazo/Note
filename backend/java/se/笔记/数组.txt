@@ -1,0 +1,49 @@
+对于有对应关系的数据，我们可以使用容器存储起来，当其中一方数据有顺序时，我们使用array（数组），都没顺序用map（图）
+
+
+
+数组有一查表法思想，如输入数字输出对应星期，我们可以使用这个思想，用数组将星期存储然后输出，而不用if或switch这种怂方法
+
+
+
+对于数组，不管是new出来的还是直接赋值，用==比较数组时是flase，因为比较的是数组首元素的地址
+比较数组元素时是String就按照String的比法，不是就比较它们的值
+
+
+
+排序：Arrays类自带sort(数组名)的排序方法
+	1、选择排序
+		从左边起开始在左边依次放从大到小的数或从小到大的数，代码如下
+			int[] array = new int[num];
+			int maxIndex, other;
+			for(int i = 0, n = array.length; i < n - 1; i++){
+				maxIndex = i;
+				for(int x = i + 1; x < n; x++){
+					if(array[x] > array[maxIndex]){
+						maxIndex = x;
+					}
+				}
+				other = array[i]; array[i] = array[maxIndex]; array[maxIndex]=other;
+			}
+		在右边放数//反人类，不要使用
+			int[] array = new int[num];
+			int maxIndex, other;//必须每次从零开始
+			for(int i = 0, n = array.length; i < n - 1; i++){//控制次数，借鉴了冒泡排序
+				maxIndex = 0;//必须每次从零开始
+				for(int x = 1; x < n - i; x++){
+					if(array[x] > array[maxIndex]){
+						maxIndex = x;
+					}
+				}
+				other = array[(n-1)-i]; array[(n-1)-i] = array[maxIndex]; array[maxIndex]=other;
+			}
+	2、冒泡排序，此排序外层循环控制次数，内层循环进行冒泡，代码如下
+		int[] array = new int[num];
+		int other;
+		for(int i = 0, n = array.length - 1; i < n; i++){//控制次数
+			for(int x = 0; x < n - i; x++){//这里减掉i可以减少不必要的运算
+				if(array[x] > array[x + 1]){
+					other = array[x]; array[x] = array[x+1]; array[x+1] = other;
+				}
+			}
+		}

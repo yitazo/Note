@@ -1,0 +1,5 @@
+python -m venv name在当前目录下创建虚拟环境
+name\Scripts\activate激活环境，这样安装的包都是在该虚拟环境下，name\Scripts\deactivate退出环境
+
+当pip无法更新时，删除name\Lib\site-packages\pipxxx，激活环境，然后python -m ensurepip，最后python -m pip install --upgrade pip
+pip install -i url xxx可临时指定镜像站，或者c盘pip.ini永久指定

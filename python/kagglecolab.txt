@@ -1,0 +1,28 @@
+kaggle
+
+function closeButton(){
+    console.log("close"); 
+    document.querySelector("#root > div > div > div.AppView-sc-16eb2j.kZXkZl > div.App_Body-sc-16c8j4p.hxOBfv > div.Layout_Body-sc-6piylv.bXAYPy > div > div > div > div.ToolbarContainer_Body-sc-2h8iu7.fhvgBU > button").click() 
+}
+setInterval(closeButton,60000);
+
+function closeButton(){
+    console.log("close"); 
+    document.querySelector("#root > div > div > div.AppView-sc-16eb2j.kZXkZl > div.App_Body-sc-16c8j4p.hxOBfv > div.Layout_Body-sc-6piylv.bXAYPy > div > div > div > div.ToolbarContainer_Body-sc-2h8iu7.fhvgBU > div.DetailedStatus_Body-sc-zfwb95.fMzpPO > button > i").click() 
+}
+setInterval(closeButton,60000);
+
+
+colab
+
+function ConnectButton(){
+    console.log("Connect pushed"); 
+    document.querySelector("#top-toolbar > colab-connect-button").shadowRoot.querySelector("#connect").click() 
+}
+setInterval(ConnectButton,60000);
+
+function closeButton(){
+    console.log("close"); 
+    document.querySelector("body > colab-dialog > paper-dialog > colab-sessions-dialog").shadowRoot.querySelector("#footer > div > paper-button.dismiss").click() 
+}
+setInterval(ConnectButton,60000);

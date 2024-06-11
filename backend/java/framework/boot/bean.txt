@@ -1,0 +1,8 @@
+@Component使用类型首字母小写作id
+@Bean使用方法名作id
+
+@Autowired默认使用类型注入
+如果注入时一个类型发现多个不同id的bean则报错，除非@Component和@Bean的使用@Primary指定主bean或者@Autowired时变量的名字和其中一个bean的id一样
+构造器注入和setter注入同理
+
+@Bean时方法中的参数会使用类型注入

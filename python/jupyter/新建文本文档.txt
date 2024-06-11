@@ -1,0 +1,2 @@
+有一个环境装jupyter即可，其他环境装ipykernel就能加载进去，conda自带jupyter
+需要在装jupyter的环境启动，否则需要将那个环境的Scripts配置到环境变量

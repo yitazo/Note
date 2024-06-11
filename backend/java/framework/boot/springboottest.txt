@@ -1,0 +1,2 @@
+junit5+springboottest即可注入，不能使用Runwith(SpringRunner.class)不然报错
+junit4+springboottest+runwith才能注入

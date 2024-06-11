@@ -1,0 +1,21 @@
+循环：
+	1、for循环，尽量避免在圆括号里面调用方法，这样会调用很多次这个方法
+		例如for(int i=0;i<s.lenght();i++)可以写成for(int i=0,n=s.length();i<n;i++)
+	2、for each循环，对于数组，可以使用for each循环来输出数组里的每一个数据，但不能用于输入和修改数据，用法如下
+		一维数组
+			int[] arr=new int[1];
+			赋值后;
+			for(int name:arr){
+				System.out.println(name);
+			}
+		二维数组
+			int[][] arr=new int[1][2];
+			赋值后;
+			for(int[] name1:arr)//可以把二维数组看成多个一维数组组成的一维数组来理解
+				for(int name2:arr1)
+					System.out.print(name2);
+
+	3、do while循环记得while后面要加分号
+		do(
+			System.out.println("记得加分号")；
+		)while;

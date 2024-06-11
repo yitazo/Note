@@ -1,0 +1,17 @@
+开启关闭服务
+linux systemctl start/stop xxxx
+windows net start/stop xxxx
+
+查看端口被网络应用占用
+linux netstat -ntlp
+windows netstat -ano
+
+查看端口被哪些进程占用
+linux lsof -i:xxxx
+
+查看各种进程情况
+linux ps -ef
+查找指定进程
+linux ps -ef | grep xxxx
+杀死进程
+linux kil xxxx

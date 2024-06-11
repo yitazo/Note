@@ -1,0 +1,91 @@
+创建字符串：
+	1、String s="字符串";这种方法先在常量池里生成字符串常量，再在堆里创建一个匿名对象，对象指向字符串常量，对象的地址存在引用s里
+		若再有这样创建引用变量的，就先检索常量有无这个字符串，有就直接将这个匿名对象的地址给新建的引用变量
+		这样创建的变量和new出来的变量的对象不一样，即使它们的对象所存的字符串内容相等
+	2、String s=new String();这样创建的字符串，变量所存的地址所指向的对象的内容为NULL
+	3、String s=new String("字符串");这样创建的字符串，变量的地址所指向的对象的内容为括号内的字符串
+	4、String s=new String(字符串变量);这样创建的对象和字符串变量的对象不一样，因为new了
+	5、String s=new String(char[] a);将字符数组的内容当作字符串传递进去
+	6、String s=new String(char[] a, int b, int c);同五，不过所给的内容为数组a从下表b到c之前的内容，即b至c-1
+	7、String s=new String(byte[] a);将字节数组以ASCII形式的字符串当作参数，不要求掌握
+	8、String s=new String(byte[] a, int b, int c);解析如6
+
+
+
+字符串使用：（均不改变原字符串，只返回目标）
+	1、s.length();方法返回字符串的长度
+	2、s.trim();方法返回去掉首尾空格的字符串
+指定位置的字符：
+	3、s.charAt(int n);方法返回字符串下表为n的字符
+指定字符串的位置：
+	4、s.indexOf("字符串");方法返回指定字符串的下标，下表为从头开始顺序寻找到的第一个的下标
+	5、s.indexOf("字符串",int n);解析如4，但从下标n开始寻找
+	6、s.lastIndexOf("字符串");找最后一次出现的下标
+	7、s.lastIndexOf("字符串",int n);
+获取子字符串：
+	8、s.substring(int n);返回从下标n开始到结束的子字符串
+	9、s.substring(int a,int b);返回从下标a开始到下标b之前的子字符串
+替换子字符串：
+	10、s.replace(String old,String new);返回将所有和old相等的字符串替换新字符或字符串
+切割字符串：
+	11、s.split("字符串");返回按指定内容将字符串分割，可在字符串之间用"|"定义多个切割符
+		如192.168.0.1按"."分割成"192" "168" "0" "1"存在字符串数组里
+	12、s.split("字符串",int n);按指定内容将字符串分割，分割成n份，从头开始切割
+连接字符串：
+	13、"字符串"+"字符串"+基本数据类型; +号任意一边有字符串都会将基本数据类型同化成字符串
+		如System.out.print("这里有"+5+1+"个人");将输出“这里有51个人”
+大小写转换：
+	14、s.toLowerCase()和s.toUpperCase();s是要转换的字符串，返回新字符串
+判断字符串首尾：
+	15、s.startsWith("字符串")和s.endsWith("字符串");可以判断字符串是否以指定格式开始或结尾，返回布尔值
+比较字符串：
+	16、s == s1;比较的是字符串变量所存的地址是否相等，返回布尔值
+	17、s.equals(String s1);比较s和s1所存地址所指的对象的内容是否相等，区分大小写，返回布尔值
+	18、s.equalsIngoreCase(String s1)忽视大小写
+	19、s.compareTo(String s1);按照顺序比较两个字符串，返回整数；如"abc"和"abc"返回0；"a"和"b"返回-1，"b"和"a"返回1
+		其他如"abc"和"ab"返回1
+
+
+
+格式化字符串：
+	1、String.format();类似于C语言的printf,将内容返回
+	2、时间格式化，Date date=new Date;String.format("现在的时间是%tc",date);可以输出现在的时间
+
+
+
+正则表达式：
+	可用来判断某字符串是否符合某种格式，正则表达式实际上是一种格式
+	使用方法为s.matches(正则表达式);返回布尔值
+
+
+
+StringBuffer和StringBuilder类：
+	StringBuffer线程同步，安全，用于多线程，效率中
+	StringBuilder线程不同步，不安全，用于单线程，效率高
+	String不安全，效率低，但在数据少的情况下三者效率都差不多
+其用法：
+	1、String能用的除replace()外这些类都能用，用完后返回目标字符串，并且将原字符串修改成目标字符串(substring除外)，因为他们的对象是可变的
+	2、sbf.replace(int a,int b,"字符串");将从下标a开始到下标b之间的内容替换成指定字符串；字符串长度可以不等于被替换的内容
+	3、sbf.setCharAt(int n,'字符');修改指定索引位置的字符
+	4、sbf.reverse();将字符串反转
+	5、sbf.insert(int n,任意类型数据);在下标n之前插入右边的数据
+	6、sbf.delete(int a,int b);将从下标a到下标b之前的内容删除，b可以超过字符串长度，此时将删除从下标a到结束的内容
+	7、sbf.deleteCharAt(int a);删除指定索引位置的字符
+	7、sbf.append("字符串");将字符串拼接在sbf所存的地址指向的对象的内容后面
+	8、sbf.toString();将sbf字符串转换成String类型的字符串
+
+
+
+理解：
+	1、sbf和sbd不能用字符串常量直接赋值，也不能将String型变量赋予sbf和sbd
+	2、每个字符串的每个下标元素左右两边都有一个空字符""，可replace来检验
+	3、String型变量实际是String型常量，因为每次修改对象的内容时，都会生成一个新对象，让String型变量指向新对象
+		和String不同，这些类的对象的内容是可变的，String类的对象内容是不变的，每次修改生成新对象
+	4、遍历字符串：可以使用for(int i=0,n=s.length(); i<n; i++)System.out.println(s.charAt(i));
+
+
+
+三者互相转换：
+	1、String转换成其余两种直接将String变量当参数使用
+	2、其余两者转换成String,均有toString()方法
+	3、两种方法互换，通过String做桥梁

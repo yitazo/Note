@@ -1,0 +1,4 @@
+自己安装软件在usr/local，yum安装软件在usr/share，数据保存在var/lib，配置保存在etc
+gitbash和ssh软件设置字体lucida console或者consolas
+编程工具首先fira code，其次使用黑体对齐汉字
+cmd和各种类库使用黑体

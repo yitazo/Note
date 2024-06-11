@@ -1,0 +1,9 @@
+pip install ipykernel
+python -m ipykernel install --name envname --display-name showname
+jupyter notebook
+
+jupyter notebook --generate-config
+c.NotebookApp.notebook_dir = r'D:\Project\Python\jupyter'
+
+jupyter kernelspec list
+jupyter kernelspec remove envname
